@@ -1,0 +1,4 @@
+name: RamdomTimedEvents
+version: '1.0'
+main: me.pinkcandy.ramdomTimedEvents.RamdomTimedEvents
+api-version: '1.21'
