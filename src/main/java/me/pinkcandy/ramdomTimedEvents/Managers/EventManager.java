@@ -1,9 +1,6 @@
 package me.pinkcandy.ramdomTimedEvents.Managers;
 
-import me.pinkcandy.ramdomTimedEvents.Events.LiquidSwap;
-import me.pinkcandy.ramdomTimedEvents.Events.LowGravity;
-import me.pinkcandy.ramdomTimedEvents.Events.NoRegeneration;
-import me.pinkcandy.ramdomTimedEvents.Events.YouAreZombie;
+import me.pinkcandy.ramdomTimedEvents.Events.*;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -23,9 +20,10 @@ public class EventManager {
     public void StartRamdomClass() {
         List<EventInterface> klasy = Arrays.asList(
                 new LiquidSwap(plugin),
-                new YouAreZombie(),
+                new YouAreZombie(plugin),
                 new NoRegeneration(plugin),
-                new LowGravity(plugin)
+                new LowGravity(plugin),
+                new DeadGoBoom(plugin)
         );
 
         FileConfiguration config = plugin.getConfig();
@@ -33,11 +31,14 @@ public class EventManager {
 
         List<EventInterface> enabled = new ArrayList<>();
 
-        for (EventInterface k : klasy) {
-            String key = k.getName();
-            ConfigurationSection section = config.getConfigurationSection(key);
-            if (section != null && section.getBoolean("enabled", false)) {
-                enabled.add(k);
+        ConfigurationSection eventsSection = config.getConfigurationSection("events");
+        if (eventsSection != null) {
+            for (EventInterface k : klasy) {
+                String key = k.getName();
+                ConfigurationSection section = eventsSection.getConfigurationSection(key);
+                if (section != null && section.getBoolean("enabled", false)) {
+                    enabled.add(k);
+                }
             }
         }
 
@@ -48,7 +49,8 @@ public class EventManager {
 
         EventInterface selected = enabled.get(random.nextInt(enabled.size()));
 
-        ConfigurationSection section = config.getConfigurationSection(selected.getName());
+// Poprawne pobranie sekcji spod "events.<nazwa>"
+        ConfigurationSection section = config.getConfigurationSection("events." + selected.getName());
         int time = (section != null) ? section.getInt("time", 10) : 10;
 
         selected.Start(time);

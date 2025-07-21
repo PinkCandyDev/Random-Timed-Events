@@ -10,15 +10,25 @@ announcement: 10
 
 # Events configuration
 # You can enable or disable events, and set their duration.
-LiquidSwap:
-  enabled: true
-  time: 120
-YouAreZombie:
-  enabled: true
-  time: 120
-NoRegeneration:
-  enabled: true
-  time: 120
-LowGravity:
-  enabled: true
-  time: 120
+events:
+  LiquidSwap:
+    enabled: false
+    time: 120
+  YouAreZombie:
+    enabled: false
+    time: 120
+  NoRegeneration:
+    enabled: false
+    time: 120
+  LowGravity:
+    enabled: false
+    time: 120
+  DeadGoBoom:
+    enabled: true
+    time: 120
+    setFire: true
+    players: false
+    mobs: true
+  BePacifist:
+    enabled: false
+    time: 120

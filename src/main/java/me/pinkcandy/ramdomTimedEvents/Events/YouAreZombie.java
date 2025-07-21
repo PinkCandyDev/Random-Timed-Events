@@ -12,10 +12,14 @@ import org.bukkit.scheduler.BukkitTask;
 public class YouAreZombie implements EventInterface {
 
     private BukkitTask task;
+    private final JavaPlugin plugin;
+
+    public YouAreZombie(JavaPlugin plugin) {
+        this.plugin = plugin;
+    }
 
     @Override
     public void Start(int time) {
-        JavaPlugin plugin = JavaPlugin.getProvidingPlugin(getClass());
         new EventTimer(plugin, this, time);
         task = Bukkit.getScheduler().runTaskTimer(plugin, () -> {
             for (Player player : Bukkit.getOnlinePlayers()) {
