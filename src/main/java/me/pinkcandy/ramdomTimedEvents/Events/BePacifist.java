@@ -3,7 +3,6 @@ package me.pinkcandy.ramdomTimedEvents.Events;
 import me.pinkcandy.ramdomTimedEvents.Managers.EventInterface;
 import me.pinkcandy.ramdomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
-import org.bukkit.EntityEffect;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,7 +19,7 @@ public class BePacifist implements EventInterface, Listener {
 
     @Override
     public void Start(int time) {
-        EventTimer eventTimer = new EventTimer(plugin, this, time);
+        new EventTimer(plugin, this, time);
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 

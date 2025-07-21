@@ -1,4 +1,5 @@
 me/pinkcandy/ramdomTimedEvents/Events/LowGravity.class
+me/pinkcandy/ramdomTimedEvents/Events/BePacifist.class
 me/pinkcandy/ramdomTimedEvents/Events/NoRegeneration$1.class
 me/pinkcandy/ramdomTimedEvents/Timers/BeforeEventTimer.class
 me/pinkcandy/ramdomTimedEvents/RamdomTimedEvents.class
