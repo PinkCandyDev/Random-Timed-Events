@@ -1,0 +1,49 @@
+package me.pinkcandy.randomTimedEvents.Events;
+
+import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
+import org.bukkit.Bukkit;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
+
+public class NoJumping implements EventInterface, Listener {
+
+    private final JavaPlugin plugin;
+    private boolean blockSprint;
+    private boolean blockJump;
+    private boolean blockSneak;
+    private BukkitTask gravityTask;
+
+    public NoJumping(JavaPlugin plugin) {
+        this.plugin = plugin;
+    }
+
+    @Override
+    public void Start(int time) {
+        new EventTimer(plugin, this, time);;
+        Bukkit.getPluginManager().registerEvents(this, plugin);
+    }
+
+    @EventHandler
+    private void OnPlayerMove(PlayerMoveEvent event)
+    {
+        if (blockJump && event.getPlayer().getVelocity().getY() >= 0 && !event.getPlayer().isOnGround())
+        {
+            event.setCancelled(true);
+        }
+    }
+
+    @Override
+    public void Stop() {
+        PlayerMoveEvent.getHandlerList().unregister(this);
+    }
+
+    @Override
+    public String getName() {
+        return "NoJumping";
+    }
+
+}

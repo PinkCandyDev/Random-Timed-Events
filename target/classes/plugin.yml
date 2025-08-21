@@ -1,4 +1,10 @@
 name: RamdomTimedEvents
 version: '1.0'
-main: me.pinkcandy.ramdomTimedEvents.RamdomTimedEvents
+main: me.pinkcandy.randomTimedEvents.RamdomTimedEvents
 api-version: '1.21'
+commands:
+  rte:
+    description: 'Random timed events control command.'
+    usage: '/rte args'
+    permission: rte
+    permission-message: 'You do not have permission to use this command.'

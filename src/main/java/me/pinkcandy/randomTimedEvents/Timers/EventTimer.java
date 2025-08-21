@@ -1,10 +1,12 @@
-package me.pinkcandy.ramdomTimedEvents.Timers;
+package me.pinkcandy.randomTimedEvents.Timers;
 
-import me.pinkcandy.ramdomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
 import org.bukkit.Bukkit;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
@@ -46,6 +48,21 @@ public class EventTimer {
         }, 0L, 20L);
     }
 
+    public void Stop(CommandSender sender) {
+        if (task == null || task.isCancelled())
+        {
+            sender.sendMessage("§cEvent is not running.");
+        }
+        else
+        {
+            task.cancel();
+            stopBossBar();
+            event.Stop();
+            CountdownTimer countdownTimer = new CountdownTimer(plugin);
+            countdownTimer.restart();
+        }
+    }
+
     private void createBossBar() {
         bossBar = Bukkit.createBossBar(getBarTitle(), BarColor.RED, BarStyle.SOLID);
         bossBar.setVisible(true);
@@ -74,6 +91,6 @@ public class EventTimer {
     }
 
     private String getBarTitle() {
-        return "§6[" + event.getName() + "] kończy się za §c" + secondsLeft + "s";
+        return "§6[" + event.getName() + "] will end in §c" + secondsLeft + "s";
     }
 }

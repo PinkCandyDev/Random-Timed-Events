@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ramdomtimedevents" />
+        <module name="randomtimedevents" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ramdomtimedevents" target="21" />
+    </bytecodeTargetLevel>
   </component>
 </project>

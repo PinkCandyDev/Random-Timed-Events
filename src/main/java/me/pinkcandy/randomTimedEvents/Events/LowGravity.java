@@ -1,7 +1,7 @@
-package me.pinkcandy.ramdomTimedEvents.Events;
+package me.pinkcandy.randomTimedEvents.Events;
 
-import me.pinkcandy.ramdomTimedEvents.Managers.EventInterface;
-import me.pinkcandy.ramdomTimedEvents.Timers.EventTimer;
+import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -22,8 +22,6 @@ public class LowGravity implements EventInterface {
     public void Start(int time) {
         new EventTimer(plugin, this, time); // Uruchomienie timera i bossbara
 
-        applyEffects();
-
         gravityTask = Bukkit.getScheduler().runTaskTimer(plugin, () -> {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 // Odśwież efekty co 2 ticki
@@ -39,15 +37,6 @@ public class LowGravity implements EventInterface {
 
             }
         }, 0L, 2L); // Co 2 ticki
-    }
-
-    private void applyEffects() {
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP_BOOST, 40, 2, false, false, false));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 0, false, false, false));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 40, 0, false, false, false));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 40, 0, false, false, false));
-        }
     }
 
     @Override

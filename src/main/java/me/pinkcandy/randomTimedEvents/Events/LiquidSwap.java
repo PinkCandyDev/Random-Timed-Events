@@ -1,7 +1,7 @@
-package me.pinkcandy.ramdomTimedEvents.Events;
+package me.pinkcandy.randomTimedEvents.Events;
 
-import me.pinkcandy.ramdomTimedEvents.Managers.EventInterface;
-import me.pinkcandy.ramdomTimedEvents.Timers.EventTimer;
+import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

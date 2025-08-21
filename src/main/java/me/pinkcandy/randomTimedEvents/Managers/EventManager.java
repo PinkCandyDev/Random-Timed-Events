@@ -1,6 +1,6 @@
-package me.pinkcandy.ramdomTimedEvents.Managers;
+package me.pinkcandy.randomTimedEvents.Managers;
 
-import me.pinkcandy.ramdomTimedEvents.Events.*;
+import me.pinkcandy.randomTimedEvents.Events.*;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,14 +17,23 @@ public class EventManager {
         this.plugin = plugin;
     }
 
-    public void StartRamdomClass() {
-        List<EventInterface> klasy = Arrays.asList(
+    private List<EventInterface> getAllEvents() {
+        return Arrays.asList(
                 new LiquidSwap(plugin),
                 new YouAreZombie(plugin),
                 new NoRegeneration(plugin),
                 new LowGravity(plugin),
-                new DeadGoBoom(plugin)
+                new DeadGoBoom(plugin),
+                new BePacifist(plugin),
+                new NoJumping(plugin),
+                new AdventureTime(plugin),
+                new WallHack(plugin),
+                new MoveOrDie(plugin),
+                new AdhdInventory(plugin)
         );
+    }
+
+    public void StartRamdomClass() {
 
         FileConfiguration config = plugin.getConfig();
         Random random = new Random();
@@ -33,7 +42,7 @@ public class EventManager {
 
         ConfigurationSection eventsSection = config.getConfigurationSection("events");
         if (eventsSection != null) {
-            for (EventInterface k : klasy) {
+            for (EventInterface k : getAllEvents()) {
                 String key = k.getName();
                 ConfigurationSection section = eventsSection.getConfigurationSection(key);
                 if (section != null && section.getBoolean("enabled", false)) {
@@ -49,11 +58,34 @@ public class EventManager {
 
         EventInterface selected = enabled.get(random.nextInt(enabled.size()));
 
-// Poprawne pobranie sekcji spod "events.<nazwa>"
         ConfigurationSection section = config.getConfigurationSection("events." + selected.getName());
         int time = (section != null) ? section.getInt("time", 10) : 10;
 
         selected.Start(time);
+    }
+
+    public void startEventByName(String eventName) {
+
+        EventInterface found = null;
+        for (EventInterface event : getAllEvents()) {
+            if (event.getName().equalsIgnoreCase(eventName)) {
+                found = event;
+                break;
+            }
+        }
+        if (found == null) {
+            plugin.getLogger().warning("Nie znaleziono eventu: " + eventName);
+            return;
+        }
+
+        ConfigurationSection section = plugin.getConfig().getConfigurationSection("events." + found.getName());
+        if (section == null || !section.getBoolean("enabled", false)) {
+            plugin.getLogger().warning("Event " + eventName + " nie jest włączony!");
+            return;
+        }
+
+        int time = section.getInt("time", 10);
+        found.Start(time);
     }
 }
 
