@@ -1,14 +1,10 @@
 package me.pinkcandy.randomTimedEvents;
 
-import me.pinkcandy.randomTimedEvents.Timers.AnnouncementTimer;
 import me.pinkcandy.randomTimedEvents.Timers.CountdownTimer;
-import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import static org.apache.logging.log4j.LogManager.getLogger;
 
 public class CommandsHandler implements CommandExecutor {
 
