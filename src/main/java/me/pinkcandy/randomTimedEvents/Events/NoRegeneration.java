@@ -23,17 +23,6 @@ public class NoRegeneration implements EventInterface, Listener {
         plugin.getLogger().info("Event NoRegeneration został włączony.");
     }
 
-    @Override
-    public void Stop() {
-        EntityRegainHealthEvent.getHandlerList().unregister(this);
-        plugin.getLogger().info("Event NoRegeneration został wyłączony.");
-    }
-
-    @Override
-    public String getName() {
-        return "NoRegeneration";
-    }
-
     @EventHandler
     public void onRegainHealth(EntityRegainHealthEvent event) {
         switch (event.getRegainReason()) {
@@ -43,5 +32,16 @@ public class NoRegeneration implements EventInterface, Listener {
             default:
                 break;
         }
+    }
+
+    @Override
+    public void Stop() {
+        EntityRegainHealthEvent.getHandlerList().unregister(this);
+        plugin.getLogger().info("Event NoRegeneration został wyłączony.");
+    }
+
+    @Override
+    public String getName() {
+        return "NoRegeneration";
     }
 }

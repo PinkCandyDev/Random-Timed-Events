@@ -32,7 +32,6 @@ public class MoveOrDie implements EventInterface, Listener {
                 Location last = lastLocations.get(player.getUniqueId());
                 Location current = player.getLocation();
 
-                // Porównanie bloków, żeby ignorować mikroprzesunięcia
                 if (last != null && current.distance(last) <= 0.06) {
                     player.damage(1.5);
                 }
@@ -43,6 +42,11 @@ public class MoveOrDie implements EventInterface, Listener {
         }, 0L, 1L);
     }
 
+    @EventHandler
+    public void onPlayerQuit(PlayerQuitEvent event) {
+        lastLocations.remove(event.getPlayer().getUniqueId());
+    }
+
     @Override
     public void Stop() {
         if (checkMoveTask != null) {
@@ -51,12 +55,6 @@ public class MoveOrDie implements EventInterface, Listener {
         }
         lastLocations.clear();
     }
-
-    @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent event) {
-        lastLocations.remove(event.getPlayer().getUniqueId());
-    }
-
 
     @Override
     public String getName() {

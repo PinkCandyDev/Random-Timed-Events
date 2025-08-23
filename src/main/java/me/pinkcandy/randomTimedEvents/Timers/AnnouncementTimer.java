@@ -7,10 +7,15 @@ import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
-public class AnnouncementTimer {
+import java.net.http.WebSocket;
+
+public class AnnouncementTimer implements Listener {
     private final JavaPlugin plugin;
     private int totalSeconds;
     private int secondsLeft;
@@ -22,6 +27,7 @@ public class AnnouncementTimer {
         FileConfiguration config = plugin.getConfig();
         this.totalSeconds = config.getInt("announcement", 30); // domyślnie 30 sekund
         this.secondsLeft = totalSeconds;
+        Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
     public void Start() {
@@ -68,6 +74,13 @@ public class AnnouncementTimer {
             bossBar.removeAll();
             bossBar.setVisible(false);
             bossBar = null;
+        }
+    }
+    @EventHandler
+    public void OnPlayerJoin(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
+        if (bossBar != null) {
+            bossBar.addPlayer(player);
         }
     }
 

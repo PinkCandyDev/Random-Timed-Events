@@ -41,6 +41,9 @@ public class CommandsHandler implements CommandExecutor {
             countdownTimer.resume();
             sender.sendMessage("§aCountdown timer resumed.");
             return true;
+        } else if (action.equals("start")){
+
+
         }
 
         return false;

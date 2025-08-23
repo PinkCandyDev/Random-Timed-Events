@@ -20,23 +20,23 @@ public class LowGravity implements EventInterface {
 
     @Override
     public void Start(int time) {
-        new EventTimer(plugin, this, time); // Uruchomienie timera i bossbara
+        new EventTimer(plugin, this, time);
 
         gravityTask = Bukkit.getScheduler().runTaskTimer(plugin, () -> {
             for (Player player : Bukkit.getOnlinePlayers()) {
-                // Odśwież efekty co 2 ticki
+
                 player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP_BOOST, 40, 2, false, false, false));
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 0, false, false, false));
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 40, 0, false, false, false));
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 40, 0, false, false, false));
 
                 Vector velocity = player.getVelocity();
-                velocity.setX(velocity.getX() * 1.19); // zwalnia ruch w osi X
-                velocity.setZ(velocity.getZ() * 1.19); // zwalnia ruch w osi Z
+                velocity.setX(velocity.getX() * 1.19);
+                velocity.setZ(velocity.getZ() * 1.19);
                 player.setVelocity(velocity);
 
             }
-        }, 0L, 2L); // Co 2 ticki
+        }, 0L, 2L);
     }
 
     @Override

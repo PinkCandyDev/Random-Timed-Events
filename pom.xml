@@ -9,7 +9,7 @@
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>ramdomtimedevents</name>
+    <name>randomtimedevents</name>
 
     <properties>
         <java.version>21</java.version>

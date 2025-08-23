@@ -24,10 +24,21 @@ public class YouAreZombie implements EventInterface {
         task = Bukkit.getScheduler().runTaskTimer(plugin, () -> {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 if (isDay(player.getWorld()) && isUnderOpenSky(player)) {
-                    player.setFireTicks(90); // 3 sekundy
+                    player.setFireTicks(90);
                 }
             }
-        }, 0L, 20); // co 2 sekundy
+        }, 0L, 20);
+    }
+
+    private boolean isDay(World world) {
+        long time = world.getTime();
+        return time >= 0 && time < 12500;
+    }
+
+    private boolean isUnderOpenSky(Player player) {
+        Location loc = player.getLocation();
+        int highestY = loc.getWorld().getHighestBlockYAt(loc);
+        return loc.getBlockY() >= highestY;
     }
 
     @Override
@@ -41,16 +52,5 @@ public class YouAreZombie implements EventInterface {
     @Override
     public String getName() {
         return "YouAreZombie";
-    }
-
-    private boolean isDay(World world) {
-        long time = world.getTime();
-        return time >= 0 && time < 12500; // Minecraftowy dzień: 0 - 12300 ticków
-    }
-
-    private boolean isUnderOpenSky(Player player) {
-        Location loc = player.getLocation();
-        int highestY = loc.getWorld().getHighestBlockYAt(loc);
-        return loc.getBlockY() >= highestY;
     }
 }

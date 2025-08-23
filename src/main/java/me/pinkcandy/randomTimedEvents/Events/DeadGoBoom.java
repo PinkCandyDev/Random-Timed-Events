@@ -30,16 +30,6 @@ public class DeadGoBoom implements EventInterface, Listener {
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
-    @Override
-    public void Stop() {
-        EntityDeathEvent.getHandlerList().unregister(this);
-    }
-
-    @Override
-    public String getName() {
-        return "DeadGoBoom";
-    }
-
     @EventHandler
     public void OnEntityDeath(EntityDeathEvent event) {
         Entity entity = event.getEntity();
@@ -51,5 +41,15 @@ public class DeadGoBoom implements EventInterface, Listener {
         {
             entity.getWorld().createExplosion(entity.getLocation(), 3.0F, setFire, true);
         }
+    }
+
+    @Override
+    public void Stop() {
+        EntityDeathEvent.getHandlerList().unregister(this);
+    }
+
+    @Override
+    public String getName() {
+        return "DeadGoBoom";
     }
 }

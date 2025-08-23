@@ -74,7 +74,6 @@ public class RandomTeleport implements EventInterface {
         return loc.getBlock().getRelative(BlockFace.DOWN).getType().isSolid() && loc.getBlock().getType().isAir() && loc.getBlock().getRelative(BlockFace.UP).getType().isAir();
     }
 
-
     @Override
     public void Stop() {
         if (teleportTask != null) {

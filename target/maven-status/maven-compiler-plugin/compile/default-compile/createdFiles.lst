@@ -1,9 +1,10 @@
 me/pinkcandy/randomTimedEvents/Events/LowGravity.class
 me/pinkcandy/randomTimedEvents/Events/AdventureTime.class
 me/pinkcandy/randomTimedEvents/Events/BePacifist.class
-me/pinkcandy/randomTimedEvents/RamdomTimedEvents.class
+me/pinkcandy/randomTimedEvents/Events/ExampleEvent.class
 me/pinkcandy/randomTimedEvents/Events/NoJumping.class
 me/pinkcandy/randomTimedEvents/Events/DeadGoBoom.class
+me/pinkcandy/randomTimedEvents/RandomTimedEvents.class
 me/pinkcandy/randomTimedEvents/Timers/CountdownTimer.class
 me/pinkcandy/randomTimedEvents/Managers/EventInterface.class
 me/pinkcandy/randomTimedEvents/Events/AdhdInventory.class

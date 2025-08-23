@@ -27,46 +27,20 @@ public class LiquidSwap implements EventInterface, Listener {
 
     @Override
     public void Start(int time) {
-        Bukkit.getLogger().info("Event LiquidSwap startuje na " + time + " sekund.");
         this.isActive = true;
-
-        // Rejestracja eventów
         Bukkit.getPluginManager().registerEvents(this, plugin);
-
-        // Odpal Timer i po jego zakończeniu wywołaj Stop
         new EventTimer(plugin, this, time);
-
-        // Uruchamiamy sprawdzanie graczy stojących w wodzie
         startWaterChecker();
     }
 
-    @Override
-    public String getName() {
-        return "LiquidSwap";
-    }
-
-    @Override
-    public void Stop() {
-        this.isActive = false;
-        HandlerList.unregisterAll(this);
-        if (waterCheckerTask != null) {
-            waterCheckerTask.cancel();
-            waterCheckerTask = null;
-        }
-        Bukkit.getLogger().info("Event LiquidSwap zakończony.");
-    }
-
-    /**
-     * Podpala gracza i zadaje obrażenia, jeśli znajduje się w wodzie.
-     */
     private void handleWaterPlayer(Player player) {
         Block block = player.getLocation().getBlock();
 
         if (block.getType() == Material.WATER || block.getType() == Material.BUBBLE_COLUMN) {
             if (player.getFireTicks() <= 0) {
-                player.setFireTicks(120); // ustawia 3 sekundy ognia (60 ticków)
+                player.setFireTicks(120);
             }
-            player.damage(2.0); // Obrażenia jak lawa
+            player.damage(2.0);
         }
     }
 
@@ -99,5 +73,20 @@ public class LiquidSwap implements EventInterface, Listener {
                 }
             }
         }.runTaskTimer(plugin, 0L, 10L); // co 1 sekundę
+    }
+
+    @Override
+    public void Stop() {
+        this.isActive = false;
+        HandlerList.unregisterAll(this);
+        if (waterCheckerTask != null) {
+            waterCheckerTask.cancel();
+            waterCheckerTask = null;
+        }
+    }
+
+    @Override
+    public String getName() {
+        return "LiquidSwap";
     }
 }

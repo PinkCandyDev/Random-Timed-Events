@@ -19,6 +19,7 @@ public class EventManager {
 
     private List<EventInterface> getAllEvents() {
         return Arrays.asList(
+//              new ExampleEvent(plugin),   Eatch event need to be registered here
                 new LiquidSwap(plugin),
                 new YouAreZombie(plugin),
                 new NoRegeneration(plugin),

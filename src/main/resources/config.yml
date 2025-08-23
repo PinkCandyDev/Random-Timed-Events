@@ -2,64 +2,71 @@
 # Intrivial is a time between end of the last event or start of the server
 # and start of announcement of the next event.
 # Admins can check remaining time with /eventtimer command, players can't check it.
-intrivial: 5
+intrivial: 1800 # In seconds, default is 1800s (30m)
 
 # Announcement is the time between the end of the end of intrivial and the start of the next event.
 # It is visible to all players via bossbar at the top of the screen.
-announcement: 10
+announcement: 30 # In seconds, default is 30s
 
 # Events configuration
 # You can enable or disable events, and set their duration.
 events:
   LiquidSwap:
-    enabled: false
+    enabled: true
     time: 300
 
   YouAreZombie:
-    enabled: false
-    time: 120
+    enabled: true
+    time: 600
 
   NoRegeneration:
-    enabled: false
-    time: 120
+    enabled: true
+    time: 300
+    artificial: true
 
   LowGravity:
-    enabled: false
-    time: 120
+    enabled: true
+    time: 200
 
   DeadGoBoom:
-    enabled: false
-    time: 300
+    enabled: true
+    time: 400
     setFire: true
     players: true
     mobs: true
 
   BePacifist:
-    enabled: false
+    enabled: true
     time: 150
 
   NoJumping:
-    enabled: false
+    enabled: true
     time: 120
 
   AdventureTime:
-    enabled: false
-    time: 90
+    enabled: true
+    time: 120
 
   WallHack:
-    enabled: false
+    enabled: true
     time: 300
 
   MoveOrDie:
-    enabled: false
+    enabled: true
     time: 300
 
   ADHDInventory:
-    enabled: false
+    enabled: true
     time: 120
 
   RandomTeleport:
     enabled: true
-    time: 120
+    time: 220
     radius: 16
     frequency: 12
+
+#  ExampleEvent:    #Dont uncoment this, unles you are making your own event
+#    enabled: true
+#    time: 120
+#    varx: false
+#    vary: 5

@@ -1,6 +1,6 @@
-name: RamdomTimedEvents
+name: RandomTimedEvents
 version: '1.0'
-main: me.pinkcandy.randomTimedEvents.RamdomTimedEvents
+main: me.pinkcandy.randomTimedEvents.RandomTimedEvents
 api-version: '1.21'
 commands:
   rte:

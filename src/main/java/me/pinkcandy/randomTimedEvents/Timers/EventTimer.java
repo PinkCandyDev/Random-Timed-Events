@@ -7,10 +7,13 @@ import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
-public class EventTimer {
+public class EventTimer implements Listener {
 
     private final JavaPlugin plugin;
     private final EventInterface event;
@@ -21,11 +24,11 @@ public class EventTimer {
     private BukkitTask task;
 
     public EventTimer(JavaPlugin plugin, EventInterface event, int time) {
+        Bukkit.getPluginManager().registerEvents(this, plugin);
         this.plugin = plugin;
         this.event = event;
         this.totalTime = time;
         this.secondsLeft = time;
-
         startTimer();
     }
 
@@ -89,6 +92,13 @@ public class EventTimer {
         }
     }
 
+    @EventHandler
+    public void OnPlayerJoin(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
+        if (bossBar != null) {
+            bossBar.addPlayer(player);
+        }
+    }
     private String getBarTitle() {
         return "§6[" + event.getName() + "] will end in §c" + secondsLeft + "s";
     }

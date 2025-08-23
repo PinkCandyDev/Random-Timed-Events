@@ -26,11 +26,6 @@ public class BePacifist implements EventInterface, Listener {
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
-    @Override
-    public void Stop() {
-        EntityDamageByEntityEvent.getHandlerList().unregister(this);
-    }
-
     @EventHandler
     private void OnEntityHit(EntityDamageByEntityEvent event) {
         Entity damager = event.getDamager();
@@ -47,6 +42,11 @@ public class BePacifist implements EventInterface, Listener {
             }
 
         }
+    }
+
+    @Override
+    public void Stop() {
+        EntityDamageByEntityEvent.getHandlerList().unregister(this);
     }
 
     @Override

@@ -28,16 +28,6 @@ public class AdhdInventory implements EventInterface, Listener {
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
-    @Override
-    public void Stop() {
-        PlayerItemHeldEvent.getHandlerList().unregister(this);
-    }
-
-    @Override
-    public String getName() {
-        return "ADHDInventory";
-    }
-
     @EventHandler
     public void onHeldItemChange(PlayerItemHeldEvent event) {
 
@@ -51,5 +41,15 @@ public class AdhdInventory implements EventInterface, Listener {
 
         player.getInventory().setContents(items.toArray(new ItemStack[0]));
         player.updateInventory();
+    }
+
+    @Override
+    public void Stop() {
+        PlayerItemHeldEvent.getHandlerList().unregister(this);
+    }
+
+    @Override
+    public String getName() {
+        return "ADHDInventory";
     }
 }
