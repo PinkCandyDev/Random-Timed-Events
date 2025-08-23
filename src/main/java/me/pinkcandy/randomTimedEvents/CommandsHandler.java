@@ -8,9 +8,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class CommandsHandler implements CommandExecutor {
 
-    private final JavaPlugin plugin;
 
-    public CommandsHandler(JavaPlugin plugin) {
+    private final RandomTimedEvents plugin;
+
+    public CommandsHandler(RandomTimedEvents plugin) {
         this.plugin = plugin;
     }
 
@@ -25,7 +26,7 @@ public class CommandsHandler implements CommandExecutor {
         }
 
         String action = args[0];
-        CountdownTimer countdownTimer = new CountdownTimer(plugin);
+        CountdownTimer countdownTimer = plugin.getCountdownTimer();
         if (action.equals("timer")) {
             sender.sendMessage("§a" + countdownTimer.getSecondsLeft() + " seconds left until the next event starts.");
             return true;

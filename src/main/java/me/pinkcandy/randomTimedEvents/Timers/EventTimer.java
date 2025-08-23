@@ -1,6 +1,7 @@
 package me.pinkcandy.randomTimedEvents.Timers;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import org.bukkit.Bukkit;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
@@ -15,7 +16,7 @@ import org.bukkit.scheduler.BukkitTask;
 
 public class EventTimer implements Listener {
 
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
     private final EventInterface event;
     private final int totalTime;
     private int secondsLeft;
@@ -23,7 +24,7 @@ public class EventTimer implements Listener {
     private BossBar bossBar;
     private BukkitTask task;
 
-    public EventTimer(JavaPlugin plugin, EventInterface event, int time) {
+    public EventTimer(RandomTimedEvents plugin, EventInterface event, int time) {
         Bukkit.getPluginManager().registerEvents(this, plugin);
         this.plugin = plugin;
         this.event = event;
@@ -41,7 +42,7 @@ public class EventTimer implements Listener {
             if (secondsLeft <= 0) {
                 stopBossBar();
                 event.Stop(); // wywołanie Stop() z klasy
-                CountdownTimer countdownTimer = new CountdownTimer(plugin);
+                CountdownTimer countdownTimer = plugin.getCountdownTimer();
                 countdownTimer.restart();
                 return;
             }
@@ -60,8 +61,8 @@ public class EventTimer implements Listener {
             task.cancel();
             stopBossBar();
             event.Stop();
-            CountdownTimer countdownTimer = new CountdownTimer(plugin);
-            countdownTimer.restart();
+            CountdownTimer countdownTimer = plugin.getCountdownTimer();
+            countdownTimer.start();
         }
     }
 

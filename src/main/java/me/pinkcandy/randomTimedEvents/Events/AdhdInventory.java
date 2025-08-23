@@ -1,6 +1,7 @@
 package me.pinkcandy.randomTimedEvents.Events;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -16,9 +17,9 @@ import java.util.ArrayList;
 
 public class AdhdInventory implements EventInterface, Listener {
 
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
 
-    public AdhdInventory(JavaPlugin plugin) {
+    public AdhdInventory(RandomTimedEvents plugin) {
         this.plugin = plugin;
     }
 

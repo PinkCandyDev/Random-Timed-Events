@@ -1,6 +1,7 @@
 package me.pinkcandy.randomTimedEvents.Timers;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventManager;
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import org.bukkit.Bukkit;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
@@ -16,13 +17,13 @@ import org.bukkit.scheduler.BukkitTask;
 import java.net.http.WebSocket;
 
 public class AnnouncementTimer implements Listener {
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
     private int totalSeconds;
     private int secondsLeft;
     private BossBar bossBar;
     private BukkitTask task;
 
-    public AnnouncementTimer(JavaPlugin plugin) {
+    public AnnouncementTimer(RandomTimedEvents plugin) {
         this.plugin = plugin;
         FileConfiguration config = plugin.getConfig();
         this.totalSeconds = config.getInt("announcement", 30); // domyślnie 30 sekund

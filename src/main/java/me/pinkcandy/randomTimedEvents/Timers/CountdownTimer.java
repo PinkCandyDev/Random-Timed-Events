@@ -1,17 +1,18 @@
 package me.pinkcandy.randomTimedEvents.Timers;
 
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
 public class CountdownTimer {
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
     private int totalSeconds;
     private int secondsLeft;
     private BukkitTask task;
 
-    public CountdownTimer(JavaPlugin plugin) {
+    public CountdownTimer(RandomTimedEvents plugin) {
         this.plugin = plugin;
         FileConfiguration config = plugin.getConfig();
         this.totalSeconds = config.getInt("intrivial", 60); // domyślnie 60 sekund

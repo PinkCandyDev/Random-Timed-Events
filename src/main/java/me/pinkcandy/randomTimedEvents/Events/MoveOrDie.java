@@ -1,6 +1,7 @@
 package me.pinkcandy.randomTimedEvents.Events;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -16,11 +17,11 @@ import java.util.UUID;
 
 public class MoveOrDie implements EventInterface, Listener {
 
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
     private BukkitTask checkMoveTask;
     private final Map<UUID, Location> lastLocations = new HashMap<>();
 
-    public MoveOrDie(JavaPlugin plugin) {
+    public MoveOrDie(RandomTimedEvents plugin) {
         this.plugin = plugin;
     }
 

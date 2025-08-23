@@ -1,6 +1,7 @@
 package me.pinkcandy.randomTimedEvents.Events;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -10,9 +11,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class NoRegeneration implements EventInterface, Listener {
 
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
 
-    public NoRegeneration(JavaPlugin plugin) {
+    public NoRegeneration(RandomTimedEvents plugin) {
         this.plugin = plugin;
     }
 

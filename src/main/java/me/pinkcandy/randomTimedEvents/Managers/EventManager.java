@@ -1,6 +1,7 @@
 package me.pinkcandy.randomTimedEvents.Managers;
 
 import me.pinkcandy.randomTimedEvents.Events.*;
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,9 +12,9 @@ import java.util.List;
 import java.util.Random;
 
 public class EventManager {
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
 
-    public EventManager(JavaPlugin plugin) {
+    public EventManager(RandomTimedEvents plugin) {
         this.plugin = plugin;
     }
 

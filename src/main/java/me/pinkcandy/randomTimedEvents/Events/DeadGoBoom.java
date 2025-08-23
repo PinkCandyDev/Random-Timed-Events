@@ -1,6 +1,7 @@
 package me.pinkcandy.randomTimedEvents.Events;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;
@@ -12,12 +13,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class DeadGoBoom implements EventInterface, Listener {
 
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
     private boolean playerDeathEvent;
     private boolean entityDeathEvent;
     private boolean setFire;
 
-    public DeadGoBoom(JavaPlugin plugin) {
+    public DeadGoBoom(RandomTimedEvents plugin) {
         this.plugin = plugin;
     }
 

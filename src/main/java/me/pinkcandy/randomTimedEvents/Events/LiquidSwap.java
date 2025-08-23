@@ -1,6 +1,7 @@
 package me.pinkcandy.randomTimedEvents.Events;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -17,11 +18,11 @@ import org.bukkit.scheduler.BukkitTask;
 
 public class LiquidSwap implements EventInterface, Listener {
 
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
     private boolean isActive = false;
     private BukkitTask waterCheckerTask;
 
-    public LiquidSwap(JavaPlugin plugin) {
+    public LiquidSwap(RandomTimedEvents plugin) {
         this.plugin = plugin;
     }
 

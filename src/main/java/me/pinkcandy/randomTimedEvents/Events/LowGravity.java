@@ -1,6 +1,7 @@
 package me.pinkcandy.randomTimedEvents.Events;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -11,10 +12,10 @@ import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
 public class LowGravity implements EventInterface {
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
     private BukkitTask gravityTask;
 
-    public LowGravity(JavaPlugin plugin) {
+    public LowGravity(RandomTimedEvents plugin) {
         this.plugin = plugin;
     }
 

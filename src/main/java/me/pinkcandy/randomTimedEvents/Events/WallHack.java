@@ -1,6 +1,7 @@
 package me.pinkcandy.randomTimedEvents.Events;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -15,10 +16,10 @@ import org.bukkit.scheduler.BukkitTask;
 
 public class WallHack implements EventInterface, Listener {
 
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
     private BukkitTask glowingTask;
 
-    public WallHack(JavaPlugin plugin) {
+    public WallHack(RandomTimedEvents plugin) {
         this.plugin = plugin;
     }
 

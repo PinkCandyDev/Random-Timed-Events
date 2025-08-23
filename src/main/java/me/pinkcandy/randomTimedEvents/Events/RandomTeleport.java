@@ -1,6 +1,7 @@
 package me.pinkcandy.randomTimedEvents.Events;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -14,11 +15,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomTeleport implements EventInterface {
 
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
     private int radius;
     private BukkitTask teleportTask;
 
-    public RandomTeleport(JavaPlugin plugin) {
+    public RandomTeleport(RandomTimedEvents plugin) {
         this.plugin = plugin;
     }
 

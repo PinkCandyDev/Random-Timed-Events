@@ -1,6 +1,7 @@
 package me.pinkcandy.randomTimedEvents.Events;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -12,9 +13,9 @@ import org.bukkit.scheduler.BukkitTask;
 public class YouAreZombie implements EventInterface {
 
     private BukkitTask task;
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
 
-    public YouAreZombie(JavaPlugin plugin) {
+    public YouAreZombie(RandomTimedEvents plugin) {
         this.plugin = plugin;
     }
 

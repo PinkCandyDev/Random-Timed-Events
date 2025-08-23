@@ -1,6 +1,7 @@
 package me.pinkcandy.randomTimedEvents.Events;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
+import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Arrow;
@@ -14,9 +15,9 @@ import org.bukkit.projectiles.ProjectileSource;
 
 public class BePacifist implements EventInterface, Listener {
 
-    private final JavaPlugin plugin;
+    private final RandomTimedEvents plugin;
 
-    public BePacifist(JavaPlugin plugin) {
+    public BePacifist(RandomTimedEvents plugin) {
         this.plugin = plugin;
     }
 
