@@ -11,6 +11,7 @@ me/pinkcandy/randomTimedEvents/Events/MoveOrDie.class
 me/pinkcandy/randomTimedEvents/Events/NoRegeneration.class
 me/pinkcandy/randomTimedEvents/Events/NoRegeneration$1.class
 me/pinkcandy/randomTimedEvents/Managers/EventManager.class
+me/pinkcandy/randomTimedEvents/Events/RandomTeleport.class
 me/pinkcandy/randomTimedEvents/Events/LiquidSwap$1.class
 me/pinkcandy/randomTimedEvents/Timers/AnnouncementTimer.class
 me/pinkcandy/randomTimedEvents/Timers/EventTimer.class

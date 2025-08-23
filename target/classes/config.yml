@@ -55,5 +55,11 @@ events:
     time: 300
 
   ADHDInventory:
+    enabled: false
+    time: 120
+
+  RandomTeleport:
     enabled: true
     time: 120
+    radius: 16
+    frequency: 12

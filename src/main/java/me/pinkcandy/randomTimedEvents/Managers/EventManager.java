@@ -29,7 +29,8 @@ public class EventManager {
                 new AdventureTime(plugin),
                 new WallHack(plugin),
                 new MoveOrDie(plugin),
-                new AdhdInventory(plugin)
+                new AdhdInventory(plugin),
+                new RandomTeleport(plugin)
         );
     }
 

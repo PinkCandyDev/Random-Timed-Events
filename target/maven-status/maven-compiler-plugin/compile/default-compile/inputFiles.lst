@@ -8,6 +8,7 @@
 /home/pinkcandy/Ramdom-Timed-Events/src/main/java/me/pinkcandy/randomTimedEvents/Events/MoveOrDie.java
 /home/pinkcandy/Ramdom-Timed-Events/src/main/java/me/pinkcandy/randomTimedEvents/Events/NoJumping.java
 /home/pinkcandy/Ramdom-Timed-Events/src/main/java/me/pinkcandy/randomTimedEvents/Events/NoRegeneration.java
+/home/pinkcandy/Ramdom-Timed-Events/src/main/java/me/pinkcandy/randomTimedEvents/Events/RandomTeleport.java
 /home/pinkcandy/Ramdom-Timed-Events/src/main/java/me/pinkcandy/randomTimedEvents/Events/WallHack.java
 /home/pinkcandy/Ramdom-Timed-Events/src/main/java/me/pinkcandy/randomTimedEvents/Events/YouAreZombie.java
 /home/pinkcandy/Ramdom-Timed-Events/src/main/java/me/pinkcandy/randomTimedEvents/Managers/EventInterface.java
