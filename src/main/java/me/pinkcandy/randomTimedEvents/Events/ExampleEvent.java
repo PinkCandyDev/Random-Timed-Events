@@ -3,9 +3,8 @@ package me.pinkcandy.randomTimedEvents.Events;
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
 import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
-import org.bukkit.plugin.java.JavaPlugin;
 
-public class ExampleEvent implements EventInterface {
+public class ExampleEvent implements EventInterface { // Each event need to implement EventInterface
 
     private final RandomTimedEvents plugin; //Event should have a reference to the main plugin class
 

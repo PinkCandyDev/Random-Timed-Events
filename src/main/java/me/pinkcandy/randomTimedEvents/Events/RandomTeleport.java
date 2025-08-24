@@ -46,7 +46,6 @@ public class RandomTeleport implements EventInterface {
 
             if (isSafeLocation(newLoc)) {
                 player.teleport(newLoc);
-                plugin.getLogger().info("Teleported " + player.getName() + " to " + newLoc);
                 player.getWorld().playSound(player.getLocation(), Sound.ITEM_CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
                 break;
             } else {
@@ -57,7 +56,6 @@ public class RandomTeleport implements EventInterface {
                     checkLoc.setY(y);
                     if (isSafeLocation(checkLoc)) {
                         player.teleport(checkLoc);
-                        plugin.getLogger().info("Teleported " + player.getName() + " to " + newLoc);
                         player.getWorld().playSound(checkLoc, Sound.ITEM_CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
                         teleported = true;
                         break;

@@ -4,7 +4,6 @@ import me.pinkcandy.randomTimedEvents.Events.*;
 import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -3,7 +3,6 @@ package me.pinkcandy.randomTimedEvents.Timers;
 import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
 public class CountdownTimer {
@@ -50,5 +49,13 @@ public class CountdownTimer {
 
     public int getSecondsLeft() {
         return secondsLeft;
+    }
+
+    public boolean getTimerState() {
+        if (task == null || task.isCancelled()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

@@ -4,7 +4,6 @@ import me.pinkcandy.randomTimedEvents.Timers.CountdownTimer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public class CommandsHandler implements CommandExecutor {
 
@@ -27,22 +26,37 @@ public class CommandsHandler implements CommandExecutor {
 
         String action = args[0];
         CountdownTimer countdownTimer = plugin.getCountdownTimer();
-        if (action.equals("timer")) {
-            sender.sendMessage("§a" + countdownTimer.getSecondsLeft() + " seconds left until the next event starts.");
-            return true;
-        } else if (action.equals("restart")) {
-            countdownTimer.restart();
-            sender.sendMessage("§aCountdown timer restarted.");
-            return true;
-        } else if (action.equals("pause")) {
-            countdownTimer.cancelTask();
-            sender.sendMessage("§aCountdown timer paused.");
-            return true;
-        } else if (action.equals("resume")) {
-            countdownTimer.resume();
-            sender.sendMessage("§aCountdown timer resumed.");
-            return true;
-        } else if (action.equals("start")){
+
+
+        switch (action.toLowerCase()) {
+            case "timer":
+                int time = countdownTimer.getSecondsLeft();
+                boolean isRunning = countdownTimer.getTimerState();
+                if (isRunning && time > 0) {
+                    sender.sendMessage("§a" + time + " seconds left until the next event starts.");
+                }
+                else if (!isRunning && time > 0)
+                {
+                    sender.sendMessage("§eTimer is paused with " + time + " seconds left until the next event starts.");
+                }
+                if (!isRunning && time <= 0)
+                {
+                    sender.sendMessage("§eEvent is starting or arleady started.");
+                }
+                return true;
+            case "restart":
+                countdownTimer.restart();
+                sender.sendMessage("§aCountdown timer restarted.");
+                return true;
+            case "pause":
+                countdownTimer.cancelTask();
+                sender.sendMessage("§aCountdown timer paused at " + countdownTimer.getSecondsLeft() + " seconds");
+                return true;
+            case "resume":
+                countdownTimer.resume();
+                sender.sendMessage("§aCountdown timer resumed.");
+                return true;
+            case "stop":
 
 
         }
