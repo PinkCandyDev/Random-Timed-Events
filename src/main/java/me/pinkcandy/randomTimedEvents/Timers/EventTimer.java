@@ -16,23 +16,22 @@ import org.bukkit.scheduler.BukkitTask;
 public class EventTimer implements Listener {
 
     private final RandomTimedEvents plugin;
-    private final EventInterface event;
-    private final int totalTime;
+    private EventInterface event;
+    private int totalTime;
     private int secondsLeft;
 
     private BossBar bossBar;
     private BukkitTask task;
 
-    public EventTimer(RandomTimedEvents plugin, EventInterface event, int time) {
-        Bukkit.getPluginManager().registerEvents(this, plugin);
+    public EventTimer(RandomTimedEvents plugin) {
         this.plugin = plugin;
+        Bukkit.getPluginManager().registerEvents(this, plugin);
+    }
+
+    public void StartTimer(EventInterface event, int time) {
         this.event = event;
         this.totalTime = time;
         this.secondsLeft = time;
-        startTimer();
-    }
-
-    private void startTimer() {
         createBossBar();
 
         task = Bukkit.getScheduler().runTaskTimer(plugin, () -> {
@@ -51,7 +50,7 @@ public class EventTimer implements Listener {
     }
 
     public void Stop(CommandSender sender) {
-        if (task == null || task.isCancelled())
+        if (!isRunning())
         {
             sender.sendMessage("§cEvent is not running.");
         }
@@ -63,6 +62,10 @@ public class EventTimer implements Listener {
             CountdownTimer countdownTimer = plugin.getCountdownTimer();
             countdownTimer.start();
         }
+    }
+
+    public Boolean isRunning() {
+        return task != null && !task.isCancelled();
     }
 
     private void createBossBar() {

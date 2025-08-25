@@ -24,7 +24,7 @@ public class WallHack implements EventInterface, Listener {
 
     @Override
     public void Start(int time) {
-        new EventTimer(plugin, this, time);
+        plugin.getEventTimer().StartTimer(this, time);
         glowingTask = Bukkit.getScheduler().runTaskTimer(plugin, () -> {
             for (World world : Bukkit.getWorlds()) {
                 for (Entity entity : world.getEntities()) {

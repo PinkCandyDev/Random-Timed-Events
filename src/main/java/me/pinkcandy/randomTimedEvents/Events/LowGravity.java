@@ -20,7 +20,7 @@ public class LowGravity implements EventInterface {
 
     @Override
     public void Start(int time) {
-        new EventTimer(plugin, this, time);
+        plugin.getEventTimer().StartTimer(this, time);
 
         gravityTask = Bukkit.getScheduler().runTaskTimer(plugin, () -> {
             for (Player player : Bukkit.getOnlinePlayers()) {

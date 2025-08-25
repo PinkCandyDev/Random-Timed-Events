@@ -14,7 +14,7 @@ public class ExampleEvent implements EventInterface { // Each event need to impl
 
     @Override
     public void Start(int time) { // Method that starts the event time is a time variable from config under the event name
-        new EventTimer(plugin, this, time); // Event should start a timer
+        plugin.getEventTimer().StartTimer(this, time); // Event should start a timer
         // Make event work infinite, EventTimer will stop it after time
     }
 

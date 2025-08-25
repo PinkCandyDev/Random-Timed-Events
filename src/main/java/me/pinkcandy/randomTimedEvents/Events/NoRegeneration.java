@@ -19,7 +19,7 @@ public class NoRegeneration implements EventInterface, Listener {
     @Override
     public void Start(int time) {
         Bukkit.getPluginManager().registerEvents(this, plugin);
-        new EventTimer(plugin, this, time);
+        plugin.getEventTimer().StartTimer(this, time);
         plugin.getLogger().info("Event NoRegeneration został włączony.");
     }
 

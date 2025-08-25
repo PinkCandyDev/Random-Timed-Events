@@ -26,7 +26,7 @@ public class MoveOrDie implements EventInterface, Listener {
 
     @Override
     public void Start(int time) {
-        new EventTimer(plugin, this, time);
+        plugin.getEventTimer().StartTimer(this, time);
         checkMoveTask = Bukkit.getScheduler().runTaskTimer(plugin, () -> {
             plugin.getServer().getOnlinePlayers().forEach(player -> {
                 Location last = lastLocations.get(player.getUniqueId());

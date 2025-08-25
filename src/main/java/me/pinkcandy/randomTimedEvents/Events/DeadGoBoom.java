@@ -23,7 +23,7 @@ public class DeadGoBoom implements EventInterface, Listener {
 
     @Override
     public void Start(int time) {
-        new EventTimer(plugin, this, time);
+        plugin.getEventTimer().StartTimer(this, time);
         this.playerDeathEvent = plugin.getConfig().getBoolean("events.DeadGoBoom.players", true);
         this.entityDeathEvent = plugin.getConfig().getBoolean("events.DeadGoBoom.mobs", true);
         this.setFire = plugin.getConfig().getBoolean("events.DeadGoBoom.setFire", true);

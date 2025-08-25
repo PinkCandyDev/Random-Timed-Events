@@ -8,7 +8,6 @@ import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -25,7 +24,7 @@ public class RandomTeleport implements EventInterface {
 
     @Override
     public void Start(int time) {
-        new EventTimer(plugin, this, time);
+        plugin.getEventTimer().StartTimer(this, time);
         this.radius = plugin.getConfig().getInt("events.RandomTeleport.radius", 16);
         int frequency = plugin.getConfig().getInt("events.RandomTeleport.frequency", 15);
 

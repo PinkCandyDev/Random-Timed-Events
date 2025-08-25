@@ -29,7 +29,7 @@ public class LiquidSwap implements EventInterface, Listener {
     public void Start(int time) {
         this.isActive = true;
         Bukkit.getPluginManager().registerEvents(this, plugin);
-        new EventTimer(plugin, this, time);
+        plugin.getEventTimer().StartTimer(this, time);
         startWaterChecker();
     }
 

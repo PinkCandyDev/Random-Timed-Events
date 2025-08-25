@@ -24,7 +24,7 @@ public class AdhdInventory implements EventInterface, Listener {
 
     @Override
     public void Start(int time) {
-        new EventTimer(plugin, this, time);
+        plugin.getEventTimer().StartTimer(this, time);
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 

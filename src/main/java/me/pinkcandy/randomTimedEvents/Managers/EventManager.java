@@ -2,6 +2,7 @@ package me.pinkcandy.randomTimedEvents.Managers;
 
 import me.pinkcandy.randomTimedEvents.Events.*;
 import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -64,10 +65,16 @@ public class EventManager {
         int time = (section != null) ? section.getInt("time", 10) : 10;
 
         selected.Start(time);
+        plugin.getLogger().info("Event " + selected.getName() + " was started for " + time + " minutes.");
     }
 
-    public void startEventByName(String eventName) {
+    public void startEventByName(String eventName, CommandSender sender) {
 
+        if (plugin.getEventTimer().isRunning())
+        {
+            sender.sendMessage("§cEvent is already running!");
+            return;
+        }
         EventInterface found = null;
         for (EventInterface event : getAllEvents()) {
             if (event.getName().equalsIgnoreCase(eventName)) {
@@ -76,18 +83,15 @@ public class EventManager {
             }
         }
         if (found == null) {
-            plugin.getLogger().warning("Nie znaleziono eventu: " + eventName);
+            plugin.getLogger().warning("§cEvent " + eventName + "doesn't exist!");
             return;
         }
 
         ConfigurationSection section = plugin.getConfig().getConfigurationSection("events." + found.getName());
-        if (section == null || !section.getBoolean("enabled", false)) {
-            plugin.getLogger().warning("Event " + eventName + " nie jest włączony!");
-            return;
-        }
 
         int time = section.getInt("time", 10);
         found.Start(time);
+        plugin.getLogger().info("Event " + found.getName() + " was force started for " + time + " minutes.");
     }
 }
 
