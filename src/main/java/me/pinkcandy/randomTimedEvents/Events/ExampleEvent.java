@@ -2,7 +2,6 @@ package me.pinkcandy.randomTimedEvents.Events;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
 import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
-import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 
 public class ExampleEvent implements EventInterface { // Each event need to implement EventInterface
 

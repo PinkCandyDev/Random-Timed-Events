@@ -2,15 +2,16 @@ package me.pinkcandy.randomTimedEvents.Events;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
 import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
-import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityRegainHealthEvent;
 
+
 public class NoRegeneration implements EventInterface, Listener {
 
     private final RandomTimedEvents plugin;
+    private boolean artificial;
 
     public NoRegeneration(RandomTimedEvents plugin) {
         this.plugin = plugin;
@@ -25,13 +26,27 @@ public class NoRegeneration implements EventInterface, Listener {
 
     @EventHandler
     public void onRegainHealth(EntityRegainHealthEvent event) {
-        switch (event.getRegainReason()) {
-            case REGEN, SATIATED, MAGIC_REGEN, MAGIC:
-                event.setCancelled(true);
-                break;
-            default:
-                break;
+        this.artificial =  plugin.getConfig().getBoolean("events.NoRegeneration.artificial", true);
+        if (artificial) {
+            switch (event.getRegainReason()) {
+                case REGEN, SATIATED, MAGIC_REGEN, MAGIC:
+                    event.setCancelled(true);
+                    break;
+                default:
+                    break;
+            }
         }
+        else
+        {
+            switch (event.getRegainReason()) {
+                case REGEN, SATIATED:
+                    event.setCancelled(true);
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
 
     @Override

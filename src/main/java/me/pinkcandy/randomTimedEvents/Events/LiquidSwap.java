@@ -2,7 +2,6 @@ package me.pinkcandy.randomTimedEvents.Events;
 
 import me.pinkcandy.randomTimedEvents.Managers.EventInterface;
 import me.pinkcandy.randomTimedEvents.RandomTimedEvents;
-import me.pinkcandy.randomTimedEvents.Timers.EventTimer;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -72,7 +71,7 @@ public class LiquidSwap implements EventInterface, Listener {
                     handleWaterPlayer(player);
                 }
             }
-        }.runTaskTimer(plugin, 0L, 10L); // co 1 sekundę
+        }.runTaskTimer(plugin, 0L, 10L);
     }
 
     @Override
