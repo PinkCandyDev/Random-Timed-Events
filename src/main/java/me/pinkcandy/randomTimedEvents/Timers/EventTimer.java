@@ -60,7 +60,7 @@ public class EventTimer implements Listener {
             stopBossBar();
             event.Stop();
             CountdownTimer countdownTimer = plugin.getCountdownTimer();
-            countdownTimer.start();
+            countdownTimer.restart();
         }
     }
 
