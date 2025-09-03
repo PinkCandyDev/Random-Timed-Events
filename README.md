@@ -61,8 +61,8 @@ It adds excitement and unpredictability to gameplay while giving server admins f
 ---
 
 ## Notes on Versions
-- **Old line (1.14.4–1.20.3):** `rte-1.0.0->1.14.4.jar`  
-- **New line (1.20.4–1.21.8):** `rte-1.0.0->1.20.4.jar`  
+- **Old line (1.14.4–1.20.4):** `rte-1.0.0->1.14.4.jar`  
+- **New line (1.20.5–1.21.8):** `rte-1.0.0->1.20.5.jar`  
 - Ensure you use the correct `.jar` for your server version.  
 
 ---
