@@ -29,7 +29,10 @@ public class NoRegeneration implements EventInterface, Listener {
         this.artificial =  plugin.getConfig().getBoolean("events.NoRegeneration.artificial", true);
         if (artificial) {
             switch (event.getRegainReason()) {
-                case REGEN, SATIATED, MAGIC_REGEN, MAGIC:
+                case REGEN:
+                case SATIATED:
+                case MAGIC_REGEN:
+                case MAGIC:
                     event.setCancelled(true);
                     break;
                 default:
@@ -39,7 +42,8 @@ public class NoRegeneration implements EventInterface, Listener {
         else
         {
             switch (event.getRegainReason()) {
-                case REGEN, SATIATED:
+                case REGEN:
+                case SATIATED:
                     event.setCancelled(true);
                     break;
                 default:

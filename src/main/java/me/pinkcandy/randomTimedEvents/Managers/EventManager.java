@@ -55,7 +55,7 @@ public class EventManager {
         }
 
         if (enabled.isEmpty()) {
-            plugin.getLogger().warning("Żadna klasa nie ma enabled: true!");
+            plugin.getLogger().warning("§cNo events are enabled in the configuration!");
             return;
         }
 
@@ -65,7 +65,7 @@ public class EventManager {
         int time = (section != null) ? section.getInt("time", 10) : 10;
 
         selected.Start(time);
-        plugin.getLogger().info("Event " + selected.getName() + " was started for " + time + " minutes.");
+        plugin.getLogger().info("Event " + selected.getName() + " was started for " + time + " seconds.");
     }
 
     public void startEventByName(String eventName, CommandSender sender) {
@@ -91,7 +91,7 @@ public class EventManager {
 
         int time = section.getInt("time", 10);
         found.Start(time);
-        plugin.getLogger().info("Event " + found.getName() + " was force started for " + time + " minutes.");
+        plugin.getLogger().info("Event " + found.getName() + " was force started for " + time + " seconds.");
     }
 }
 

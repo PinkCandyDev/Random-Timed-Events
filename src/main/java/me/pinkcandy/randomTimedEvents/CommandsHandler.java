@@ -73,6 +73,12 @@ public class CommandsHandler implements CommandExecutor {
         }
         if (action=="start" || actionArg != null)
         {
+            boolean isRunning = countdownTimer.getTimerState();
+            if (isRunning)
+            {
+                sender.sendMessage("§cEvent is already starting or running, use rte stop to stop the running event.");
+                return true;
+            }
             countdownTimer.cancelTask();
             EventManager eventManager = new EventManager(plugin);
             eventManager.startEventByName(actionArg, sender);

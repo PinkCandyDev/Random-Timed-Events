@@ -39,7 +39,7 @@ public class EventTimer implements Listener {
 
             if (secondsLeft <= 0) {
                 stopBossBar();
-                event.Stop(); // wywołanie Stop() z klasy
+                event.Stop();
                 CountdownTimer countdownTimer = plugin.getCountdownTimer();
                 countdownTimer.restart();
                 return;

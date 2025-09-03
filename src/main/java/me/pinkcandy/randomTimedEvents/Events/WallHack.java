@@ -27,7 +27,8 @@ public class WallHack implements EventInterface, Listener {
         glowingTask = Bukkit.getScheduler().runTaskTimer(plugin, () -> {
             for (World world : Bukkit.getWorlds()) {
                 for (Entity entity : world.getEntities()) {
-                    if (entity instanceof LivingEntity livingEntity) {
+                    if (entity instanceof LivingEntity) {
+                        LivingEntity livingEntity = (LivingEntity) entity;
                         livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 40, 0, false, false));
                     }
                 }

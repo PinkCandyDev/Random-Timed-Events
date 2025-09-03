@@ -14,7 +14,7 @@ public class CountdownTimer {
     public CountdownTimer(RandomTimedEvents plugin) {
         this.plugin = plugin;
         FileConfiguration config = plugin.getConfig();
-        this.totalSeconds = config.getInt("intrivial", 60); // domyślnie 60 sekund
+        this.totalSeconds = config.getInt("intrivial", 60);
         this.secondsLeft = totalSeconds;
     }
 

@@ -38,7 +38,7 @@ public class MoveOrDie implements EventInterface, Listener {
                 lastLocations.put(player.getUniqueId(), current.clone());
 
             });
-        }, 0L, 1L);
+        }, 0L, 2L);
     }
 
     @EventHandler

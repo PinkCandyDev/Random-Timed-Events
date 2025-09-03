@@ -22,7 +22,7 @@ events:
   NoRegeneration:
     enabled: true
     time: 300
-    artificial: true
+    artificial: false
 
   LowGravity:
     enabled: true

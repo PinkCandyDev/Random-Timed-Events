@@ -23,7 +23,7 @@ public class AnnouncementTimer implements Listener {
     public AnnouncementTimer(RandomTimedEvents plugin) {
         this.plugin = plugin;
         FileConfiguration config = plugin.getConfig();
-        this.totalSeconds = config.getInt("announcement", 30); // domyślnie 30 sekund
+        this.totalSeconds = config.getInt("announcement", 30);
         this.secondsLeft = totalSeconds;
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
