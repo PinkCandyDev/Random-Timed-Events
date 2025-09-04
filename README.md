@@ -1,8 +1,7 @@
 # Random Timed Events Plugin
 
 **Version:** 1.0.0  
-**Compatible with:** Bukkit/Spigot/Paper 1.14.4–1.21.8  
-**API Version:** 1.14 | 1.20
+**Compatible with:** Bukkit/Spigot/Paper 1.14.4–1.21.8
 
 ---
 
