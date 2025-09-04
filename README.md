@@ -39,7 +39,6 @@ It adds excitement and unpredictability to gameplay while giving server admins f
 - **ADHDInventory**: shuffles player's inventory when switching items  
 - **AdventureTime**: prevents block placing/breaking  
 - **BePacifist**: Blocks players from damaging mobs and players
-- **DeadGoBoom**: creates configurable explosions on deaths  
 - **LiquidSwap**: damages players in water and blocks lava damage  
 - **LowGravity**: applies jump boosts and slow falling  
 - **MoveOrDie**: damages stationary players  
@@ -48,7 +47,8 @@ It adds excitement and unpredictability to gameplay while giving server admins f
 - **RandomTeleport**: teleports players randomly  
 - **WallHack**: grants temporary x-ray vision  
 - **YouAreZombie**: applies zombie-like effects
-
+- **DeadGoBoom**: creates configurable explosions on deaths  
+![DeadGoBoom](https://raw.githubusercontent.com/PinkCandyDev/Random-Timed-Events/main/DeadGoBoom.gif) 
 ---
 
 ## Installation
